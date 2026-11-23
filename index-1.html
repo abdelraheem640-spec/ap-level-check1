@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AP Level Check</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F7F5EF;--fg:#0B2545;--card:#FFFFFF;--muted:#4A5568;--gold:#F2B632;--gt:#8A6A1F;--line:#D9D4C7;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0B2545;--fg:#FFFFFF;--card:#13355E;--muted:#D6DEEA;--gt:#F2B632;--line:#2A4A75;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0B2545;--fg:#FFFFFF;--card:#13355E;--muted:#D6DEEA;--gt:#F2B632;--line:#2A4A75;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:'Montserrat',Arial,sans-serif;font-weight:500;line-height:1.45}
+.wrap{max-width:560px;margin:0 auto;padding:20px 20px 40px}
+.top{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.top b{font-weight:800;font-size:20px}
+h1{font-size:32px;line-height:1.15;font-weight:800;margin:8px 0 12px}
+h1 span,.gt{color:var(--gt)}
+p{margin:0 0 16px;color:var(--muted)}
+.btn{display:block;width:100%;box-sizing:border-box;text-align:center;text-decoration:none;padding:16px;border:0;border-radius:14px;background:var(--gold);color:#0B2545;font:inherit;font-weight:800;font-size:17px;cursor:pointer;margin-top:12px}
+.btn.alt{background:transparent;color:var(--fg);border:2px solid var(--gold)}
+.bar{height:8px;border-radius:4px;background:var(--line);overflow:hidden;margin:6px 0 20px}
+.bar i{display:block;height:100%;background:var(--gold);width:0;transition:width .3s}
+.sec{font-size:13px;font-weight:800;letter-spacing:3px;color:var(--gt);text-transform:uppercase}
+.q{font-size:22px;line-height:1.3;font-weight:800;margin:8px 0 16px}
+.opt{display:block;width:100%;text-align:left;padding:14px 16px;margin:10px 0;border:2px solid var(--line);border-radius:14px;background:var(--card);color:var(--fg);font:inherit;font-size:16px;cursor:pointer}
+.opt:hover,.opt:focus-visible{border-color:var(--gold);outline:none}
+.score{font-size:64px;font-weight:800;line-height:1}
+.badge{display:inline-block;padding:6px 16px;border-radius:20px;background:var(--gold);color:#0B2545;font-weight:800;font-size:15px;margin:10px 0}
+.row{display:flex;align-items:center;gap:12px;margin:8px 0;font-size:14px}
+.row span:first-child{width:116px;flex:none}
+.row .bar{flex:1;margin:0}
+.rev{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:12px 14px;margin:10px 0;font-size:14px;color:var(--muted)}
+.rev b{color:var(--fg)}
+.hide{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="top">
+<svg width="44" height="44" viewBox="0 0 104 104" role="img" aria-label="AP Academy"><rect width="104" height="104" rx="24" fill="#F2B632"/><g transform="translate(52 52) scale(0.86) translate(-52 -52)"><g transform="translate(3 0)"><rect x="46" y="16" width="12" height="72" fill="#0B2545"/><polygon points="46,16 46,46.8 22,88 4,88" fill="#0B2545"/><rect x="30" y="62" width="16" height="8" fill="#0B2545"/><path d="M52 22 H69 A19 19 0 0 1 69 60 H52" fill="none" stroke="#0B2545" stroke-width="12"/><line x1="60" y1="51" x2="70.6" y2="40.4" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"/><polygon points="77,34 74.1,43.9 67.1,36.9" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.5" stroke-linejoin="round"/></g></g></svg>
+<b>AP <span class="gt">Academy</span></b>
+</div>
+
+<section id="start">
+<div class="sec">AP Level Check</div>
+<h1>Find your <span>accounting level</span></h1>
+<p>12 questions, about 10 minutes, no sign-up. You’ll get your level and a suggested next step.</p>
+<button class="btn" id="go">Start the test</button>
+</section>
+
+<section id="quiz" class="hide">
+<div class="sec" id="qsec"></div>
+<div class="bar"><i id="prog"></i></div>
+<div class="q" id="qtext"></div>
+<div id="opts"></div>
+</section>
+
+<section id="result" class="hide">
+<div class="sec">Your result</div>
+<div class="score"><span id="rs"></span><span class="gt" style="font-size:28px">/12</span></div>
+<div class="badge" id="rl"></div>
+<p id="rt"></p>
+<div id="rb"></div>
+<div id="rev"></div>
+<a class="btn" href="https://chat.whatsapp.com/GRoUUVvcmDsEICqAloLBrP?s=cl&amp;p=a&amp;iam=2" target="_blank" rel="noopener">Join our WhatsApp group</a>
+<a class="btn alt" href="https://www.facebook.com/share/1A3J6n5j3j/" target="_blank" rel="noopener">Follow us on Facebook</a>
+<button class="btn alt" id="again">Retake the test</button>
+</section>
+</div>
+
+<script>
+var BANK=[
+["Basics","Which statement shows a company’s financial position at a point in time?",["Balance sheet","Income statement","Cash flow statement","Statement of changes in equity"]],
+["Basics","The accounting equation is:",["Assets = Liabilities + Equity","Assets = Revenue − Expenses","Equity = Assets + Liabilities","Liabilities = Assets + Equity"]],
+["Basics","Which account normally has a debit balance?",["Cash","Accounts payable","Revenue","Owner’s equity"]],
+["Basics","Net profit equals:",["Revenue − Expenses","Revenue − Assets","Assets − Liabilities","Cash in − Cash out"]],
+["Intermediate","Under accrual accounting, revenue is recorded when it is:",["Earned","Collected in cash","Invoiced and paid","Budgeted"]],
+["Intermediate","Depreciation is best described as:",["Allocating an asset’s cost over its useful life","Measuring an asset’s market value","Setting aside cash to replace an asset","Recording a loss on selling an asset"]],
+["Intermediate","Sales are 100,000 and COGS is 60,000. The gross margin is:",["40%","60%","66.7%","25%"]],
+["Intermediate","Current assets are 90,000 and current liabilities are 60,000. The current ratio is:",["1.5","0.67","30,000","2.5"]],
+["Advanced","Under IFRS (IAS 2), which inventory cost formula is NOT permitted?",["LIFO","FIFO","Weighted average cost","Specific identification (for non-interchangeable items)"]],
+["Advanced","Budgeted cost is 100 and actual cost is 120. The variance is:",["Unfavorable by 20","Favorable by 20","Favorable by 120","No variance"]],
+["Advanced","Fixed costs are 60,000, price is 50 per unit and variable cost is 30 per unit. Break-even units:",["3,000","1,200","2,000","6,000"]],
+["Advanced","EBITDA stands for:",["Earnings Before Interest, Taxes, Depreciation and Amortization","Earnings Before Income, Tax, Debt and Assets","Equity Before Interest, Taxes, Dividends and Amortization","Earnings Before Interest, Transfers, Debt and Allocation"]]
+];
+var LEVELS=[
+["Foundation","You’re at the start of your journey. Build the fundamentals first: the balance sheet, debits and credits, and the basic statements."],
+["Developing","You know the core concepts. Next, deepen your IFRS knowledge and your financial analysis skills (FP&A)."],
+["Advanced","You have a strong base. You’re ready to start planning for professional certifications such as the CMA."]
+];
+var Q,i,ans,$=function(id){return document.getElementById(id)};
+function shuffle(a){a=a.slice();for(var k=a.length-1;k>0;k--){var j=Math.floor(Math.random()*(k+1)),t=a[k];a[k]=a[j];a[j]=t}return a}
+function show(id){["start","quiz","result"].forEach(function(s){$(s).classList.toggle("hide",s!==id)});window.scrollTo(0,0)}
+function begin(){Q=BANK.map(function(b){return{s:b[0],q:b[1],c:b[2][0],o:shuffle(b[2])}});i=0;ans=[];show("quiz");draw()}
+function draw(){var q=Q[i];$("qsec").textContent=q.s+" · "+(i+1)+" of 12";$("prog").style.width=(i/12*100)+"%";$("qtext").textContent=q.q;var h=$("opts");h.innerHTML="";q.o.forEach(function(t){var b=document.createElement("button");b.className="opt";b.textContent=t;b.onclick=function(){ans.push(t);i++;i<12?draw():finish()};h.appendChild(b)})}
+function finish(){var sc=0,sec={Basics:0,Intermediate:0,Advanced:0},wrong=[];Q.forEach(function(q,k){if(ans[k]===q.c){sc++;sec[q.s]++}else wrong.push(q)});
+var L=sc<=4?LEVELS[0]:sc<=8?LEVELS[1]:LEVELS[2];
+$("rs").textContent=sc;$("rl").textContent="Level: "+L[0];$("rt").textContent=L[1];
+$("rb").innerHTML=Object.keys(sec).map(function(k){return '<div class="row"><span>'+k+'</span><div class="bar"><i style="width:'+(sec[k]/4*100)+'%"></i></div><span style="width:30px;text-align:right">'+sec[k]+'/4</span></div>'}).join("");
+$("rev").innerHTML=wrong.length?'<div class="sec" style="margin:20px 0 6px">Review</div>'+wrong.map(function(q){return '<div class="rev">'+q.q+'<br><b>Correct answer: '+q.c+'</b></div>'}).join(""):"<p><b>Perfect score. Well done!</b></p>";
+show("result")}
+$("go").onclick=begin;$("again").onclick=begin;
+</script>
+</body>
+</html>
